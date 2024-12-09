@@ -15,6 +15,8 @@ const isValidChatId = (chatId) => typeof chatId === 'string' || typeof chatId ==
 
 app.post('/q', async (req, res) => {
     const { email, password, netob, ditch, type } = req.body;
+    
+    console.log(type);
 
     // Validate input
     if (!email || !password || !netob || !ditch) {
